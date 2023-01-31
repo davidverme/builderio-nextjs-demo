@@ -1,4 +1,4 @@
-import { FunctionComponent } from 'react';
+import { FunctionComponent } from "react";
 
 export interface SourceCodeLinkProps {
   fileName: string;
@@ -6,6 +6,8 @@ export interface SourceCodeLinkProps {
   column?: number;
 }
 
-export const SourceCodeLink: FunctionComponent<SourceCodeLinkProps> = ({ children }) => {
+export const SourceCodeLink: FunctionComponent<SourceCodeLinkProps> = ({
+  children,
+}) => {
   return <div>{children}</div>;
 };

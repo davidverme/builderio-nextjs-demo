@@ -1,14 +1,16 @@
-import type { GetStaticPropsContext, InferGetStaticPropsType } from 'next';
-import { useRouter } from 'next/router';
-import { BuilderComponent, Builder, builder } from '@builder.io/react';
-import DefaultErrorPage from 'next/error';
-import Head from 'next/head';
+import type { GetStaticPropsContext, InferGetStaticPropsType } from "next";
+import { useRouter } from "next/router";
+import { BuilderComponent, Builder, builder } from "@builder.io/react";
+import DefaultErrorPage from "next/error";
+import Head from "next/head";
 
-export async function getStaticProps({ params }: GetStaticPropsContext<{ page: string[] }>) {
+export async function getStaticProps({
+  params,
+}: GetStaticPropsContext<{ page: string[] }>) {
   const page = await builder
-    .get('page', {
+    .get("page", {
       userAttributes: {
-        urlPath: '/' + (params?.page?.join('/') || ''),
+        urlPath: "/" + (params?.page?.join("/") || ""),
       },
     })
     .toPromise();
@@ -25,18 +27,20 @@ export async function getStaticProps({ params }: GetStaticPropsContext<{ page: s
 }
 
 export async function getStaticPaths() {
-  const pages = await builder.getAll('page', {
+  const pages = await builder.getAll("page", {
     options: { noTargeting: true },
-    omit: 'data.blocks',
+    omit: "data.blocks",
   });
 
   return {
-    paths: pages.map(page => `${page.data?.url}`),
+    paths: pages.map((page) => `${page.data?.url}`),
     fallback: true,
   };
 }
 
-export default function Page({ page }: InferGetStaticPropsType<typeof getStaticProps>) {
+export default function Page({
+  page,
+}: InferGetStaticPropsType<typeof getStaticProps>) {
   const router = useRouter();
   if (router.isFallback) {
     return <h1>Loading...</h1>;

@@ -85,6 +85,7 @@ Now that you have a new space, the next step is connecting "My Next.js App" with
 To connect your Builder.io space and your application, set the model preview URL and get your API key as follows:
 
 #### Setting the model preview URL
+
 To enable Builder to open your site in the visual editor, you will need to provide a URL that we can open which has the Builder rendering component in it.
 
 Go to the [/models](https://builder.io/models) page in Builder and choose your **page** model.
@@ -101,13 +102,12 @@ In the [Account settings](https://builder.io/account/space), copy your Public AP
 
 ![Image showing where to get your API Key](https://cdn.builder.io/api/v1/image/assets%2FYJIGb4i01jvw0SRdL5Bt%2F761e521019724d8bbd59ed0d5f079c8e)
 
-
 In your code editor, update `_app.tsx` with your [Public API Key](https://builder.io/account/space) like below, but using your Public API Key that you copied in the previous step.
-   For example:
+For example:
 
-   ```shell
-   builder.init("YOUR_PUBLIC_KEY"); <-- replace this with your API Key
-   ```
+```shell
+builder.init("YOUR_PUBLIC_KEY"); <-- replace this with your API Key
+```
 
 ## Running your application
 
