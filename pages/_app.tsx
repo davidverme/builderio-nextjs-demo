@@ -7,7 +7,7 @@ import { ShoesViewer } from "../components/ShoesViewer";
 import { SourceCodeLink } from "../components/SourceCodeLink";
 
 // Initialize builder with your apiKey
-builder.init("YOUR_PUBLIC_KEY");
+builder.init("6a2c5f48157440e2abd811665714b4f9");
 
 // Register Header component so it's available in the drag-and-drop tool
 Builder.registerComponent(Header, {
